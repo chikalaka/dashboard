@@ -3,6 +3,8 @@ const MongoClient = require('mongodb').MongoClient;
 
 exports.up = function(next) {
   MongoClient.connect('mongodb://localhost:27017/myapp', function (err, db) {
+    if (err) throw err;
+    
     db.createCollection("data");
 
     db.collection("data").insertOne({
@@ -29,7 +31,7 @@ exports.up = function(next) {
       }
     }
   );
-  
+
     db.collection("data").insertOne({
           "Name": "ClearWeb",
           "Types": {

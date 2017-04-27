@@ -8,6 +8,9 @@ Quick view of details regarding cyber attacks
     git clone https://github.com/chikalaka/dashboard.git
     npm install
 
+### prerequisites
+mongo is up and running
+
 ### Run
 
     npm start

@@ -35,3 +35,6 @@ npm start will migrate additional data to your db (named "myapp")
   }
 }
 ```
+
+### To use scss:
+    gulp sass

@@ -8,7 +8,7 @@ Quick view of details regarding cyber attacks
     git clone https://github.com/chikalaka/dashboard.git
     npm install
 
-### run
+### Run
 
     npm start
 

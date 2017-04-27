@@ -1,0 +1,123 @@
+body {
+  background-color: #105475;
+  color: white; }
+
+#dashboard {
+  display: flex;
+  flex-flow: column;
+  margin-top: 70px; }
+  #dashboard .webname-title {
+    text-align: center;
+    margin-bottom: 6px;
+    display: none; }
+  #dashboard .webname-text {
+    font-size: 120%;
+    white-space: nowrap; }
+  #dashboard .dashboard-row {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    margin-bottom: 20px; }
+    #dashboard .dashboard-row .webname-div {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      width: 10%;
+      max-width: 100%;
+      max-height: 100%; }
+      #dashboard .dashboard-row .webname-div img {
+        max-width: 100%;
+        max-height: 100%; }
+  #dashboard .panel {
+    background-color: #1d4e65;
+    display: flex;
+    flex-flow: column;
+    /*justify-content: space-between;*/ }
+    #dashboard .panel .panel-head {
+      background-color: #1D4052;
+      line-height: 200%;
+      padding-left: 3%;
+      padding-right: 3%;
+      font-size: 90%; }
+    #dashboard .panel .panel-body {
+      padding: 2%;
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around; }
+      #dashboard .panel .panel-body .panel-item {
+        display: flex;
+        flex-flow: row;
+        align-items: center; }
+  #dashboard .panel-severities {
+    width: 25%; }
+    #dashboard .panel-severities .panel-body {
+      font-size: 85%; }
+    #dashboard .panel-severities .panel-item {
+      margin-top: 2%;
+      display: flex;
+      justify-content: space-around; }
+  #dashboard .panel-sources {
+    width: 20%; }
+    #dashboard .panel-sources .type-row-item {
+      padding-bottom: 1%; }
+    #dashboard .panel-sources .panel-body {
+      padding-left: 6%;
+      padding-right: 6%;
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+      font-size: 70%; }
+    #dashboard .panel-sources .graph-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.7%; }
+    #dashboard .panel-sources .progress-bar {
+      background: #152f3c;
+      width: 80%;
+      height: 6px;
+      border-radius: 3px; }
+      #dashboard .panel-sources .progress-bar div {
+        color: white;
+        font-style: italic;
+        font-weight: bolder;
+        font-size: 14px;
+        line-height: 15px;
+        width: 100%; }
+      #dashboard .panel-sources .progress-bar .progress-bar-width {
+        background: #569bc5;
+        width: 75%;
+        height: 100%;
+        border-radius: inherit; }
+  #dashboard .panel-types {
+    width: 35%; }
+    #dashboard .panel-types .panel-body {
+      font-size: 85%;
+      flex-flow: row wrap; }
+    #dashboard .panel-types .panel-item {
+      margin-right: 20%;
+      margin-bottom: 2%;
+      width: 30%; }
+
+@media screen and (max-width: 960px) {
+  #dashboard .dashboard-row .webname-div {
+    display: none; }
+  #dashboard .panel-types {
+    width: 40%; }
+  #dashboard .panel-severities {
+    width: 25%; }
+  #dashboard .panel-sources {
+    width: 30%; }
+  #dashboard .webname-title {
+    display: block; } }
+
+@media screen and (max-width: 768px) {
+  #dashboard .dashboard-row {
+    flex-flow: column;
+    align-items: center; }
+  #dashboard .panel {
+    width: 85%;
+    margin-bottom: 10px; } }

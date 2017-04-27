@@ -1,0 +1,68 @@
+'use strict'
+const MongoClient = require('mongodb').MongoClient;
+
+exports.up = function(next) {
+  MongoClient.connect('mongodb://localhost:27017/myapp', function (err, db) {
+    db.createCollection("data");
+
+    db.collection("data").insertOne({
+
+      "Name": "DarkWeb",
+      "Types": {
+        "AttackIndication":30,
+        "DataLeakage":21,
+        "Phishing":0,
+        "BrandSecurity":0,
+        "ExploitableData":17,
+        "vip":0
+      },
+      "Severities": {
+        "High":29,
+        "Medium":35,
+        "Low":4
+      },
+      "Sources": {
+        "BlackMarkets":10.294117647058822,
+        "HackingForums":44.11764705882353,
+        "PasteSites":13.23529411764706,
+        "Others":32.35294117647059
+      }
+    }
+  );
+  
+    db.collection("data").insertOne({
+          "Name": "ClearWeb",
+          "Types": {
+            "AttackIndication":118,
+            "DataLeakage":155,
+            "Phishing":230,
+            "BrandSecurity":16,
+            "ExploitableData":41,
+            "vip":23
+          },
+          "Severities": {
+            "High":144,
+            "Medium":349,
+            "Low":90
+          },
+          "Sources": {
+            "ApplicationStores":1.5437392795883362,
+            "SocialMedia":4.974271012006861,
+            "PasteSites":16.123499142367066,
+            "Others":77.35849056603774
+          }
+        }
+    );
+    next();
+  });
+};
+
+exports.down = function(next) {
+  MongoClient.connect('mongodb://localhost:27017/myapp', function (err, db) {
+    if (err) throw err;
+
+    db.collection('data').drop();
+    next();
+  });
+
+};

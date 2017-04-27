@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+  <head>
+    <meta charset="utf-8">
+    <title>my app</title>
+    <link rel="stylesheet" href="./client/dashboard/dashboard.css" />
+    <script src="./node_modules/angular/angular.js"></script>
+    <script data-require="lodash.js@*" data-semver="2.4.1" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js'></script>
+    <script src="./client/dashboard/dashboard.controller.js"></script>
+
+  </head>
+  <body ng-controller="myCtrl">
+    {{mongoData}}
+    <div id="dashboard">
+
+      <div ng-repeat="(key, webName) in data">
+        <div class='webname-title'>
+          <div class="webname-text">
+            {{getConstName(webName.Name)}}
+          </div>
+        </div>
+        <div class="dashboard-row" >
+          <div class="webname-div">
+            <div class="webname-text">
+              {{getConstName(webName.Name)}}
+            </div>
+            <div>
+              <img src='./assets/{{webName.Name}}.png' alt='{{webName.Name}}'/>
+            </div>
+          </div>
+          <div class='panel panel-types'>
+            <div class='panel-head'>
+              TYPES
+            </div>
+            <div class='panel-body'>
+                <div class='panel-item' ng-repeat="(keyType, type) in webName.Types">
+                  <img src='./assets/AttackIndication.png' alt='attack'/>
+                  <div>
+                    <div>{{type}}</div>
+                    <div>{{getConstName(keyType)}}</div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class='panel panel-severities'>
+            <div class='panel-head'>
+              SEVERITIES
+            </div>
+            <div class='panel-body'>
+              <div>
+                <canvas
+                  id="doughnut"
+                  class="chart chart-doughnut"
+                  chart-data="[webName.Severities.Low,webName.Severities.Medium,webName.Severities.High]"
+                  chart-labels="pieLabels"
+                  chart-options="pieOptions"
+                  height="100%"
+                >
+                </canvas>
+              </div>
+              <div class="panel-item">
+                <div>
+                  <div>HIGH</div>
+                  <div>{{webName.Severities.High}}</div>
+                </div>
+                <div>
+                  <div>MEDIUM</div>
+                  <div>{{webName.Severities.Medium}}</div>
+                </div>
+                <div>
+                  <div>LOW</div>
+                  <div>{{webName.Severities.Low}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='panel panel-sources'>
+            <div class='panel-head'>
+              SOURCES (%)
+            </div>
+            <div class='panel-body'>
+              <div class="type-row-item" ng-repeat="(keySource, source) in webName.Sources">
+                <div>{{getConstName(keySource)}}</div>
+                <div class="graph-item">
+                  <div class="progress-bar">
+                    <div class="progress-bar-width" ng-style="{'width': source + '%'}"></div>
+                  </div>
+                  <div>{{getNumberNoDecimal(source)}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

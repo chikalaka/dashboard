@@ -1,4 +1,4 @@
-# Cyber Dashboard Threats
+# Dashboard of Cyber Threats
 Quick view of details regarding cyber attacks
 
 # Usage
